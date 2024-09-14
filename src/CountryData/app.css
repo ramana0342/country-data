@@ -1,0 +1,24 @@
+
+body{
+     padding: 0px;
+     margin: 0px;
+}
+
+.homeContainer{
+    background-image: url(https://media.istockphoto.com/id/1425918349/vector/blue-geometric-world-map.jpg?s=612x612&w=0&k=20&c=HuNAq4gsVyUJ_r57cLVAGylSjxmFsD8VEDvkNVgqK7Y=);
+    min-height:100vh;
+    background-size: cover;       
+    background-position: center;  
+    background-repeat: no-repeat;
+    display: flex;               
+    justify-content: center;     
+    align-items: center; 
+}
+
+p{
+    padding: 0px;
+    margin: 0px;
+}
+
+
+/* https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCPx5-L_lOCYd_nKpggLQmuLwyYf0yZxjoiYFOgmLIXUdYfPtWswF-HpkrTkP2__Jmxu8&usqp=CAU */
