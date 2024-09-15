@@ -20,5 +20,13 @@ p{
     margin: 0px;
 }
 
+.ListGroup{
+    width: 50%;
+    max-height: 300px; 
+    overflow-y: auto;
+        
+    
+}
+
 
 /* https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCPx5-L_lOCYd_nKpggLQmuLwyYf0yZxjoiYFOgmLIXUdYfPtWswF-HpkrTkP2__Jmxu8&usqp=CAU */

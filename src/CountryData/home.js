@@ -3,7 +3,9 @@ import { useState } from "react";
 import CountryData from "./countryData";
 import InitialData from "./initialData";
 import SingleCountry from "./singleCountry";
-import "./app.css"
+import "./app.css";
+import SheimerEffect from "./sheimerEffect";
+import { useEffect } from "react";
 
 
 const Home=()=>{
@@ -11,7 +13,34 @@ const Home=()=>{
     const[inputData,setInputData] = useState("")
     const[filterData,setFilterData] = useState([])
     const[singleCData,setSingleCountryData] = useState([])
+    const [loading, setLoading] = useState(true); 
  
+
+    useEffect(() => {
+     
+      const timer = setTimeout(() => {
+        setLoading(false);
+      }, 1000); 
+  
+      return () => clearTimeout(timer); 
+    }, []);
+
+
+    const renderContent = () => {
+      if (loading) {
+        return <SheimerEffect />;
+      }
+      
+      if (singleCData.length > 0) {
+        return <SingleCountry data={singleCData} />;
+      }
+      
+      if (filterData.length === 0 && inputData === '') {
+        return <InitialData />;
+      }
+  
+      
+    };
 
    const handleChange = (e) => {
     const value = e.target.value;
@@ -55,7 +84,7 @@ const Home=()=>{
     return(<>
         <div className="container-fluid homeContainer">
         <div className="container">
-           
+             <h1 style={{textAlign:"center", color:"white"}}><b>Know About The Country</b></h1>
             <div className="row" style={{display: 'flex', justifyContent: 'center', width: '50%', margin: '50px auto' }}>
             <div class="input-group mb-3">
   <span class="input-group-text" id="basic-addon1"> <svg style={{marginRight:"10px"}} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
@@ -83,7 +112,7 @@ const Home=()=>{
 
 
    <div className="row">
-          {singleCData.length > 0  ?  <SingleCountry data={singleCData}/> : <InitialData/>}
+          {renderContent()}
    </div>
         </div>
       
